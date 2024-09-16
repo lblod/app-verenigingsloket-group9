@@ -14,6 +14,25 @@ services:
 
   # Your extra services here
 
+  login:
+    image: semtech/mu-login-service:3.0.0
+    environment:
+      USERS_GRAPH: "http://mu.semte.ch/graphs/users"
+      SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
+    links:
+      - database:database
+    labels:
+      - "logging=true"
+  registration:
+    image: semtech/mu-registration-service:2.7.3
+    entrypoint: echo "Only needed for mu script"
+    environment:
+      USERS_GRAPH: "http://mu.semte.ch/graphs/users"
+      SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
+    links:
+      - database:database
+    labels:
+      - "logging=true"
   resource:
     image: semtech/mu-cl-resources:1.25.0
     volumes:

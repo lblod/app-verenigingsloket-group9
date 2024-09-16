@@ -38,8 +38,9 @@
   :session "http://mu.semte.ch/vocabularies/session/"
   :ext "http://mu.semte.ch/vocabularies/ext/"
   ;; Custom prefix URIs here, prefix casing is ignored
+  :foaf "http://xmlns.com/foaf/0.1/"
+  :dct "http://purl.org/dc/terms/"
   )
-
 
 ;;;;;;;;;
 ;; Graphs
@@ -53,6 +54,17 @@
 (define-graph public ("http://mu.semte.ch/graphs/public")
   (_ -> _)) ; public allows ANY TYPE -> ANY PREDICATE in the direction
             ; of the arrow
+(define-graph users ("http://mu.semte.ch/graphs/users")
+  ("foaf:Person"
+    -> "foaf:name"
+    -> "foaf:account"
+    -> "dct:created"
+    -> "dct:modified")
+  ("foaf:OnlineAccount"
+    -> "foaf:accountName"
+    -> "foaf:accountServiceHomepage"
+    -> "dct:created"
+    -> "dct:modified"))
 
 ;; Example:
 ;; (define-graph company ("http://mu.semte.ch/graphs/companies/")
@@ -69,9 +81,26 @@
 
 (supply-allowed-group "public")
 
-(grant (read write)
+(supply-allowed-group "logged-in"
+  :parameters ()
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+      } LIMIT 1")
+
+(grant (read)
        :to-graph public
        :for-allowed-group "public")
+
+(grant (write)
+       :to-graph public
+       :for-allowed-group "logged-in")
+
+(grant (read)
+       :to-graph users
+       :for-allowed-group "logged-in")
 
 ;; example:
 
