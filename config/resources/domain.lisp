@@ -24,3 +24,4 @@
 
 ;; reading in the domain.json
 (read-domain-file "users.json")
+(read-domain-file "codelists.json")

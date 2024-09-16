@@ -52,8 +52,9 @@
 ;; indexes.
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
-  (_ -> _)) ; public allows ANY TYPE -> ANY PREDICATE in the direction
-            ; of the arrow
+  ("skos:ConceptScheme" -> _)
+  ("skos:Concept" -> _))
+
 (define-graph users ("http://mu.semte.ch/graphs/users")
   ("foaf:Person"
     -> "foaf:name"
