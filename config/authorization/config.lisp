@@ -40,6 +40,7 @@
   ;; Custom prefix URIs here, prefix casing is ignored
   :foaf "http://xmlns.com/foaf/0.1/"
   :dct "http://purl.org/dc/terms/"
+  :besluit "http://data.vlaanderen.be/ns/besluit#"
   )
 
 ;;;;;;;;;
@@ -53,7 +54,8 @@
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
   ("skos:ConceptScheme" -> _)
-  ("skos:Concept" -> _))
+  ("skos:Concept" -> _)
+  ("besluit:Bestuurseenheid" -> _))
 
 (define-graph users ("http://mu.semte.ch/graphs/users")
   ("foaf:Person"

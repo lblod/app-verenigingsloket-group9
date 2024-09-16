@@ -29,6 +29,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/concept-schemes/"
   end
 
+  get "/administrative-units/*path", @json do
+    Proxy.forward conn, path, "http://resource/administrative-units/"
+  end
+
   match "/sessions/*path", @json do
     Proxy.forward conn, path, "http://login/sessions/"
   end
