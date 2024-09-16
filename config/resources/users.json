@@ -18,6 +18,12 @@
           "predicate": "foaf:account",
           "target": "account",
           "cardinality": "one"
+        },
+        "organization": {
+          "predicate": "foaf:member",
+          "target": "organization",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "features": [

@@ -44,3 +44,4 @@
 (add-prefix "nie" "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#")
 (add-prefix "schema" "http://schema.org/")
 (add-prefix "adms" "http://www.w3.org/ns/adms#")
+(add-prefix "org" "http://www.w3.org/ns/org#")
