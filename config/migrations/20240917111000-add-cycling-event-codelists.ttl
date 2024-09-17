@@ -1,16 +1,16 @@
-http://data.lblod.gift/id/concept-scheme/WielerwedstrijdCategorie> a skos:ConceptScheme ;
-    mu:uuid "59e257f3-13cc-44b2-bd81-44be809be234" ;
-    skos:prefLabel "Wielerwedstrijd Categorieën" ;
-  
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
 
+<http://data.lblod.gift/id/concept-scheme/WielerwedstrijdCategorie> a skos:ConceptScheme ;
+  mu:uuid "59e257f3-13cc-44b2-bd81-44be809be234" ;
+  skos:prefLabel "Wielerwedstrijd Categorieën" .
 
 <http://data.lblod.gift/id/concept-scheme/WielrennerCategorie> a skos:ConceptScheme ;
-    mu:uuid "8d79d587-222b-4aeb-8708-43e7094a5d52" ;
-    skos:prefLabel "Wielrenner Categorieën" ;
-
+  mu:uuid "8d79d587-222b-4aeb-8708-43e7094a5d52" ;
+  skos:prefLabel "Wielrenner Categorieën" .
 
 #De concepten nu binnen hun respectievelijke scheme:
-Voor "Wegwedstrijd - Individuele wedstrijd"
+#Voor "Wegwedstrijd - Individuele wedstrijd"
 <http://data.lblod.gift/id/concept/WielerwedstrijdType/c58033fc-5ebd-405c-8ae3-7ff65b155c1f> a skos:Concept ;
     mu:uuid "c58033fc-5ebd-405c-8ae3-7ff65b155c1f" ;
     skos:prefLabel "Wegwedstrijd - Individuele wedstrijd" ;
