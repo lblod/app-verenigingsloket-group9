@@ -2,6 +2,8 @@ services:
   identifier:
     ports:
       - "80:80"
+    environment:
+      LOG_ALLOWED_GROUPS: "on"
   triplestore:
     ports:
       - "8890:8890"
