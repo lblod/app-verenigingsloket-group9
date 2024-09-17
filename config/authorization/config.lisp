@@ -42,6 +42,11 @@
   :dct "http://purl.org/dc/terms/"
   :besluit "http://data.vlaanderen.be/ns/besluit#"
   :org "http://www.w3.org/ns/org#Organization"
+  :omgeving "https://data.vlaanderen.be/ns/omgevingsvergunning#"
+  :adms "http://www.w3.org/ns/adms#"
+  :time "http://www.w3.org/2006/time#"
+  :geosparql "http://www.opengis.net/ont/geosparql#"
+  :dbpedia "http://dbpedia.org/resource/"
   )
 
 ;;;;;;;;;
@@ -71,6 +76,16 @@
     -> "dct:created"
     -> "dct:modified"))
 
+(define-graph organization ("http://mu.semte.ch/graphs/organizations/")
+  ("dbpedia:Case" -> _)
+  ("omgeving:Activiteit" -> _)
+  ("omgeving:Aanvraag" -> _)
+  ("adms:Identifier" -> _)
+  ("geosparql:Feature" -> _)
+  ("time:Interval" -> _)
+  ("omgeving:Vergunning" -> _)
+  ("besluit:Besluit" -> _))
+
 ;; Example:
 ;; (define-graph company ("http://mu.semte.ch/graphs/companies/")
 ;;   ("foaf:OnlineAccount"
@@ -95,17 +110,29 @@
           <SESSION_ID> session:account ?account .
       } LIMIT 1")
 
+(supply-allowed-group "organization-member"
+  :parameters ("organization_uuid")
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?organizationUuid ?account WHERE {
+          <SESSION_ID> session:account ?account .
+          ?user foaf:account ?account .
+          ?organization foaf:member ?user ;
+            mu:uuid ?organization_uuid .
+      } LIMIT 1")
+
 (grant (read)
        :to-graph public
        :for-allowed-group "public")
 
-(grant (write)
-       :to-graph public
-       :for-allowed-group "logged-in")
-
 (grant (read)
        :to-graph users
        :for-allowed-group "logged-in")
+
+(grant (write)
+       :to-graph organization
+       :for-allowed-group "organization-member")
 
 ;; example:
 
