@@ -1,0 +1,27 @@
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.lblod.gift/id/organization/79a1812c-d835-4386-8510-79a8c84ac1bd> a org:Organization ;
+   mu:uuid "79a1812c-d835-4386-8510-79a8c84ac1bd" ;
+   skos:prefLabel "Flanders Classics" .
+
+<http://data.lblod.gift/id/organization/41d1c434-a8c9-446c-82da-1db73c21be49> a org:Organization ;
+   mu:uuid "41d1c434-a8c9-446c-82da-1db73c21be49" ;
+   skos:prefLabel "Golazo Sports" .
+
+<http://data.lblod.gift/id/organization/d004bf25-de39-4fec-bd35-9fc8a4df1ca0> a org:Organization ;
+   mu:uuid "d004bf25-de39-4fec-bd35-9fc8a4df1ca0" ;
+   skos:prefLabel "Vlaamse Wielerbond" .
+
+<http://data.lblod.gift/id/organization/fcd45ad8-ec7b-41d4-9e71-63e90fb24e95> a org:Organization ;
+   mu:uuid "fcd45ad8-ec7b-41d4-9e71-63e90fb24e95" ;
+   skos:prefLabel "WSC Hand in Hand Baal" .
+
+<http://data.lblod.gift/id/organization/b8d841f6-001d-4d9a-aa9c-335031dbdc37> a org:Organization ;
+   mu:uuid "b8d841f6-001d-4d9a-aa9c-335031dbdc37" ;
+   skos:prefLabel "Cycling Vlaanderen" .
+
+<http://data.lblod.gift/id/organization/29e753a5-7357-4a57-8f68-6261eb46d03e> a org:Organization ;
+   mu:uuid "29e753a5-7357-4a57-8f68-6261eb46d03e" ;
+   skos:prefLabel "Lotto Cycling Cup" .
