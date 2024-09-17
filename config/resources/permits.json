@@ -92,6 +92,12 @@
           "predicate": "omgeving:Rechtshandeling.verantwoordelijke",
           "target": "administrative-unit",
           "cardinality": "one"
+        },
+        "decision": {
+          "predicate": "omgeving:voorwerp",
+          "target": "decision",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "features": ["include-uri"],
@@ -163,6 +169,48 @@
       },
       "features": ["include-uri"],
       "new-resource-base": "http://data.lblod.gift/id/tijdsduur/"
-    }
+    },
+    "permits": {
+      "name": "permit",
+      "class": "omgeving:Vergunning",
+      "attributes": {
+        "date": {
+          "type": "datetime",
+          "predicate": "omgeving:ingangsdatum",
+        }
+      },
+      "relationships": {
+        "decision": {
+          "predicate": "omgeving:inhoud",
+          "target": "decision",
+          "cardinality": "one"
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://data.lblod.gift/id/vergunning/"
+    },
+    "decisions": {
+      "name": "decision",
+      "class": "besluit:Besluit",
+      "_comment": "Overlaps with omgeving:NormatieveBepaling",
+      "attributes": {
+      },
+      "relationships": {
+        "submission": {
+          "predicate": "omgeving:voorwerp",
+          "target": "submission",
+          "cardinality": "one"
+        },
+        "permit": {
+          "predicate": "omgeving:inhoud",
+          "target": "permit",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://data.lblod.gift/id/besluit/"
+    },
+
   }
 }
