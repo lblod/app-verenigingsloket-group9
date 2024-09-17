@@ -1,0 +1,34 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX people: <http://lblod.data.gift/people/>
+PREFIX accounts: <http://lblod.data.gift/accounts/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX account: <http://mu.semte.ch/vocabularies/account/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+   GRAPH <http://mu.semte.ch/graphs/users> {
+     people:7f54c332-eb1c-4f10-826a-fbde6a631f91 a foaf:Person ;
+                   foaf:name "Kees Kettingkast" ;
+                   foaf:account accounts:5cfac70c-dc89-4de9-be71-35f3090af6da ;
+                   mu:uuid "7f54c332-eb1c-4f10-826a-fbde6a631f91" ;
+                   dcterms:created "2024-09-17T11:21:53+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2024-09-17T11:21:53+00:00"^^xsd:dateTime .
+     accounts:5cfac70c-dc89-4de9-be71-35f3090af6da a foaf:OnlineAccount ;
+                   foaf:accountName "kees.kettingkast" ;
+                   mu:uuid "5cfac70c-dc89-4de9-be71-35f3090af6da" ;
+                   account:password """$2a$12$FdzKu1YihbkDDqgx6fiwzuj4Ys6BfuxUn92TA8BGQAeVZyyiIeYFW""" ;
+                   account:salt "96d63c098282a8a2d24022dc33771a9d" ;
+                   account:status <http://mu.semte.ch/vocabularies/account/status/active> ;
+                   dcterms:created "2024-09-17T11:21:53+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2024-09-17T11:21:53+00:00"^^xsd:dateTime .
+    }
+}
+
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.gift/id/organization/d004bf25-de39-4fec-bd35-9fc8a4df1ca0> foaf:member people:7f54c332-eb1c-4f10-826a-fbde6a631f91 .
+  }
+}

@@ -2,8 +2,8 @@
 @prefix mu: <http://mu.semte.ch/vocabularies/core/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<http://data.lblod.gift/id/organization/79a1812c-d835-4386-8510-79a8c84ac1bd> a org:Organization ;
-   mu:uuid "79a1812c-d835-4386-8510-79a8c84ac1bd" ;
+<http://data.lblod.gift/id/organization/35a5fd60-4e44-4e7e-9c3e-432bc48974d8> a org:Organization ;
+   mu:uuid "35a5fd60-4e44-4e7e-9c3e-432bc48974d8" ;
    skos:prefLabel "Flanders Classics" .
 
 <http://data.lblod.gift/id/organization/41d1c434-a8c9-446c-82da-1db73c21be49> a org:Organization ;
