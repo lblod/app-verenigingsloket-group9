@@ -21,6 +21,38 @@ defmodule Dispatcher do
   # Run `docker-compose restart dispatcher` after updating
   # this file.
 
+  match "/cases/*path", @json do
+    Proxy.forward conn, path, "http://resource/cases/"
+  end
+
+  match "/events/*path", @json do
+    Proxy.forward conn, path, "http://resource/events/"
+  end
+
+  match "/submissions/*path", @json do
+    Proxy.forward conn, path, "http://resource/submissions/"
+  end
+
+  match "/identifiers/*path", @json do
+    Proxy.forward conn, path, "http://resource/identifiers/"
+  end
+
+  match "/locations/*path", @json do
+    Proxy.forward conn, path, "http://resource/locations/"
+  end
+
+  match "/timeframes/*path", @json do
+    Proxy.forward conn, path, "http://resource/timeframes/"
+  end
+
+  get "/permits/*path", @json do
+    Proxy.forward conn, path, "http://resource/permits/"
+  end
+
+  get "/decisions/*path", @json do
+    Proxy.forward conn, path, "http://resource/decisions/"
+  end
+
   get "/concepts/*path", @json do
     Proxy.forward conn, path, "http://resource/concepts/"
   end

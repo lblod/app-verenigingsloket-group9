@@ -26,3 +26,4 @@
 (read-domain-file "users.json")
 (read-domain-file "codelists.json")
 (read-domain-file "organisations.lisp")
+(read-domain-file "permits.json")
