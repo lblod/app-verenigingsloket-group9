@@ -115,7 +115,7 @@
   :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
       PREFIX foaf: <http://xmlns.com/foaf/0.1/>
       PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-      SELECT ?organizationUuid ?account WHERE {
+      SELECT ?organization_uuid ?account WHERE {
           <SESSION_ID> session:account ?account .
           ?user foaf:account ?account .
           ?organization foaf:member ?user ;
