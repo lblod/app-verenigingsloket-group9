@@ -11,9 +11,13 @@ services:
       - ./config/dispatcher:/config
     labels:
       - "logging=true"
-
-  # Your extra services here
-
+  frontend:
+    image: lblod/frontend-verenigingsloket-group9:feature-add-mu-login
+    links:
+      - identifier:backend
+    restart: always
+    labels:
+      - "logging=true"
   login:
     image: semtech/mu-login-service:3.0.0
     environment:
