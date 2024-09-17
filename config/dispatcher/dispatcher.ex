@@ -9,7 +9,7 @@ defmodule Dispatcher do
   @json %{ accept: %{ json: true } }
   @html %{ accept: %{ html: true } }
 
-  define_layers [ :static, :web_page, :services, :fall_back, :not_found ]
+  define_layers [ :static, :web_page, :sparql, :services, :fall_back, :not_found ]
 
   # In order to forward the 'themes' resource to the
   # resource service, use the following forward rule:
@@ -41,6 +41,13 @@ defmodule Dispatcher do
   #################
   get "/*path", %{ layer: :web_page, accept: %{ html: true } } do
     Proxy.forward conn, [], "http://frontend/index.html"
+  end
+
+  ###############
+  # SPARQL
+  ###############
+  match "/sparql", %{ layer: :sparql, accept: %{ sparql: true } } do
+    forward conn, [], "http://database:8890/sparql"
   end
 
   ###############
