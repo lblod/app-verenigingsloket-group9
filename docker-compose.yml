@@ -12,7 +12,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: lblod/frontend-verenigingsloket-group9:feature-add-mu-login
+    image: lblod/frontend-verenigingsloket-group9:latest
     links:
       - identifier:backend
     restart: always
