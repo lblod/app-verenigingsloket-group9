@@ -130,7 +130,7 @@
        :to-graph users
        :for-allowed-group "logged-in")
 
-(grant (write)
+(grant (read write)
        :to-graph organization
        :for-allowed-group "organization-member")
 

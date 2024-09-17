@@ -15,6 +15,10 @@
       "name": "case",
       "class": "dbpedia:Case",
       "attributes": {
+        "created": {
+          "type": "datetime",
+          "predicate": "dct:created",
+        }
       },
       "relationships": {
         "identifier": {
@@ -109,7 +113,7 @@
       "class": "adms:Identifier",
       "attributes": {
         "value": {
-          "type": "string",
+          "type": "number",
           "predicate": "skos:notation"
         },
         "agency": {
