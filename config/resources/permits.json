@@ -47,7 +47,7 @@
         }
       },
       "relationships": {
-        "case": {
+        "cases": {
           "predicate": "dct:subject",
           "target": "case",
           "cardinality": "many",
