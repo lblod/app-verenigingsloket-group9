@@ -210,7 +210,6 @@
       },
       "features": ["include-uri"],
       "new-resource-base": "http://data.lblod.gift/id/besluit/"
-    },
-
+    }
   }
 }
