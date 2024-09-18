@@ -136,7 +136,10 @@
       "name": "location",
       "class": "geosparql:Feature",
       "attributes": {
-
+        "name": {
+          "type": "string",
+          "predicate": "skos:prefLabel",
+        }
       },
       "relationships": {
         "event":{
