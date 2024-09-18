@@ -2,7 +2,8 @@ defmodule Dispatcher do
   use Matcher
   define_accept_types [
     html: [ "text/html", "application/xhtml+html" ],
-    json: [ "application/json", "application/vnd.api+json" ]
+    json: [ "application/json", "application/vnd.api+json" ],
+    sparql: [ "application/sparql-results+json" ]
   ]
 
   @any %{}
@@ -10,6 +11,13 @@ defmodule Dispatcher do
   @html %{ accept: %{ html: true } }
 
   define_layers [ :static, :web_page, :sparql, :services, :fall_back, :not_found ]
+
+  options "/*_path", _ do
+    conn
+    |> Plug.Conn.put_resp_header( "access-control-allow-headers", "content-type,accept" )
+    |> Plug.Conn.put_resp_header( "access-control-allow-methods", "*" )
+    |> send_resp( 200, "{ \"message\": \"ok\" }" )
+  end
 
   # In order to forward the 'themes' resource to the
   # resource service, use the following forward rule:
