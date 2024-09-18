@@ -3,7 +3,8 @@ defmodule Dispatcher do
   define_accept_types [
     html: [ "text/html", "application/xhtml+html" ],
     json: [ "application/json", "application/vnd.api+json" ],
-    sparql: [ "application/sparql-results+json" ]
+    sparql: [ "application/sparql-results+json" ],
+    any: [ "*/*" ]
   ]
 
   @any %{}
@@ -54,7 +55,7 @@ defmodule Dispatcher do
   ###############
   # SPARQL
   ###############
-  match "/sparql", %{ layer: :sparql, accept: %{ sparql: true } } do
+  match "/sparql", %{ layer: :sparql, accept: %{ any: true } } do
     forward conn, [], "http://database:8890/sparql"
   end
 
