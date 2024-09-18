@@ -43,7 +43,8 @@ services:
       - ./config/resources:/config
     labels:
       - "logging=true"
-
+  decision-sync-service:
+    image: lblod/permit-decisions-sync-service-group-9
   migrations:
     image: semtech/mu-migrations-service:0.9.0
     links:
